@@ -31,6 +31,12 @@ app.get('/', (req, res) => {
     utility.openDirectory(homedir, res);
 });
 
-var server = app.listen(3000, function () {
-    console.log('Server running at http://localhost:' + server.address().port);
-})
+// var server = app.listen(3000, function () {
+//     console.log('Server running at http://localhost:' + server.address().port);
+// })
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
